@@ -19,38 +19,43 @@
                 form.appendChild(z2);
                 
                 
-                    z1.children[0].children[0].onfocus = function(){
-                        if (document.getElementsByName('data format')[0].value == 0)
-                            {
-                                if (document.getElementsByClassName('number')[1].children[0].value <= 
-                                document.getElementsByClassName('number')[0].children[0].value &&
-                                document.getElementsByClassName('number')[0].children[0].value > 0 &&
-                                document.getElementsByClassName('number')[1].children[0].value > 0)
-                                    document.getElementsByClassName('number')[0].children[0].classList.remove('error');
-                                else document.getElementsByClassName('number')[0].children[0].classList.add('error');  
-                            }
-                        else {
-                            if (document.getElementsByClassName('number')[0].children[0].value > 0)
-                                document.getElementsByClassName('number')[0].children[0].classList.remove('error');
-                            else document.getElementsByClassName('number')[0].children[0].classList.add('error'); 
-                        }
-                        
-                    }
+                   // Для первого поля ввода
+z1.children[0].children[0].addEventListener('input', function() {
+    if (document.getElementsByName('data format')[0].value == 0) {
+        if (document.getElementsByClassName('number')[1].children[0].value <= 
+            document.getElementsByClassName('number')[0].children[0].value &&
+            document.getElementsByClassName('number')[0].children[0].value > 0 &&
+            document.getElementsByClassName('number')[1].children[0].value > 0) {
+            document.getElementsByClassName('number')[0].children[0].classList.remove('error');
+        } else {
+            document.getElementsByClassName('number')[0].children[0].classList.add('error');
+        }
+    } else {
+        if (document.getElementsByClassName('number')[0].children[0].value > 0) {
+            document.getElementsByClassName('number')[0].children[0].classList.remove('error');
+        } else {
+            document.getElementsByClassName('number')[0].children[0].classList.add('error');
+        }
+    }
+});
 
-                    z2.children[0].children[0].onfocus = function(){
-                        if (document.getElementsByName('data format')[0].value == 0){
-                            if (document.getElementsByClassName('number')[1].children[0].value > 0)
-                                document.getElementsByClassName('number')[1].children[0].classList.remove('error');
-                            else document.getElementsByClassName('number')[1].children[0].classList.add('error');  
-                        }
-                        else {
-                            if (document.getElementsByClassName('number')[1].children[0].value >= 0 &&
-                            document.getElementsByClassName('number')[1].children[0].value <= 360)
-                                document.getElementsByClassName('number')[1].children[0].classList.remove('error');
-                            else document.getElementsByClassName('number')[1].children[0].classList.add('error');  
-                        }
-                        
-                    }
+// Для второго поля ввода
+z2.children[0].children[0].addEventListener('input', function() {
+    if (document.getElementsByName('data format')[0].value == 0) {
+        if (document.getElementsByClassName('number')[1].children[0].value > 0) {
+            document.getElementsByClassName('number')[1].children[0].classList.remove('error');
+        } else {
+            document.getElementsByClassName('number')[1].children[0].classList.add('error');
+        }
+    } else {
+        if (document.getElementsByClassName('number')[1].children[0].value >= 0 &&
+            document.getElementsByClassName('number')[1].children[0].value <= 360) {
+            document.getElementsByClassName('number')[1].children[0].classList.remove('error');
+        } else {
+            document.getElementsByClassName('number')[1].children[0].classList.add('error');
+        }
+    }
+});
                 
                 
                 
@@ -85,38 +90,43 @@
                 form.appendChild(z1);
                 let z2 = createLabeledNumberInput('a = ');
                 form.appendChild(z2);
-                z1.children[0].children[0].onfocus = function(){
-                    if (document.getElementsByName('data format')[0].value == 0)
-                        {
-                            if (document.getElementsByClassName('number')[1].children[0].value <= 
-                            document.getElementsByClassName('number')[0].children[0].value &&
-                            document.getElementsByClassName('number')[0].children[0].value > 0 &&
-                            document.getElementsByClassName('number')[1].children[0].value > 0)
-                                document.getElementsByClassName('number')[0].children[0].classList.remove('error');
-                            else document.getElementsByClassName('number')[0].children[0].classList.add('error');  
-                        }
-                    else {
-                        if (document.getElementsByClassName('number')[0].children[0].value > 0)
-                            document.getElementsByClassName('number')[0].children[0].classList.remove('error');
-                        else document.getElementsByClassName('number')[0].children[0].classList.add('error'); 
-                    }
-                    
-                }
+               // Для первого поля ввода
+z1.children[0].children[0].addEventListener('input', function() {
+    if (document.getElementsByName('data format')[0].value == 0) {
+        if (document.getElementsByClassName('number')[1].children[0].value <= 
+            document.getElementsByClassName('number')[0].children[0].value &&
+            document.getElementsByClassName('number')[0].children[0].value > 0 &&
+            document.getElementsByClassName('number')[1].children[0].value > 0) {
+            document.getElementsByClassName('number')[0].children[0].classList.remove('error');
+        } else {
+            document.getElementsByClassName('number')[0].children[0].classList.add('error');
+        }
+    } else {
+        if (document.getElementsByClassName('number')[0].children[0].value > 0) {
+            document.getElementsByClassName('number')[0].children[0].classList.remove('error');
+        } else {
+            document.getElementsByClassName('number')[0].children[0].classList.add('error');
+        }
+    }
+});
 
-                z2.children[0].children[0].onfocus = function(){
-                    if (document.getElementsByName('data format')[0].value == 0){
-                        if (document.getElementsByClassName('number')[1].children[0].value > 0)
-                            document.getElementsByClassName('number')[1].children[0].classList.remove('error');
-                        else document.getElementsByClassName('number')[1].children[0].classList.add('error');  
-                    }
-                    else {
-                        if (document.getElementsByClassName('number')[1].children[0].value >= 0 &&
-                        document.getElementsByClassName('number')[1].children[0].value <= 90)
-                            document.getElementsByClassName('number')[1].children[0].classList.remove('error');
-                        else document.getElementsByClassName('number')[1].children[0].classList.add('error');  
-                    }
-                    
-                }
+// Для второго поля ввода
+z2.children[0].children[0].addEventListener('input', function() {
+    if (document.getElementsByName('data format')[0].value == 0) {
+        if (document.getElementsByClassName('number')[1].children[0].value > 0) {
+            document.getElementsByClassName('number')[1].children[0].classList.remove('error');
+        } else {
+            document.getElementsByClassName('number')[1].children[0].classList.add('error');
+        }
+    } else {
+        if (document.getElementsByClassName('number')[1].children[0].value >= 0 &&
+            document.getElementsByClassName('number')[1].children[0].value <= 90) { // Изменено на <= 90
+            document.getElementsByClassName('number')[1].children[0].classList.remove('error');
+        } else {
+            document.getElementsByClassName('number')[1].children[0].classList.add('error');
+        }
+    }
+}); 
         
             
             }
@@ -146,7 +156,7 @@
             legend.appendChild(createCheckbox("периметр","2","property"));
             legend.appendChild(createCheckbox("радиус вписанной окружности","3","property"));
             document.getElementsByClassName('property')[0].addEventListener('change', function() {
-                
+                console.log(1)
                 let b = true;
                 for (let i = 0; i < legend.children.length; i++)
                 {
