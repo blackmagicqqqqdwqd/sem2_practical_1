@@ -1,354 +1,351 @@
 
-    function creatForm(){
+function creatForm() {
 
-        type = document.getElementsByName('data format')[0].value
-        let form = document.getElementsByTagName('form')[0];
-    
+    const typeChart = document.getElementsByName('data format')[0].value
+    const form = document.getElementsByTagName('form')[0];
 
-        if (type == '0') {
-            if(form.getElementsByClassName('picture')[0] == undefined){
-                form.appendChild(createImage('img_1.png'));
-            }
-            else {
-                form.getElementsByClassName('picture')[0].setAttribute('src','img_1.png')
-            }
-            if(form.getElementsByClassName('number')[0] == undefined) {
-                let z1 = createLabeledNumberInput('b = ')
-                form.appendChild(z1);
-                let z2 = createLabeledNumberInput('h = ');
-                form.appendChild(z2);
-                
-                
-                   // Для первого поля ввода
-z1.children[0].children[0].addEventListener('input', function() {
-    if (document.getElementsByName('data format')[0].value == 0) {
-        if (document.getElementsByClassName('number')[1].children[0].value <= 
-            document.getElementsByClassName('number')[0].children[0].value &&
-            document.getElementsByClassName('number')[0].children[0].value > 0 &&
-            document.getElementsByClassName('number')[1].children[0].value > 0) {
-            document.getElementsByClassName('number')[0].children[0].classList.remove('error');
-        } else {
-            document.getElementsByClassName('number')[0].children[0].classList.add('error');
+    if (typeChart == '0') {
+        //выбор картинки
+        if (form.getElementsByClassName('picture')[0] == undefined) {
+            form.appendChild(createImage('img_1.png'));
         }
-    } else {
-        if (document.getElementsByClassName('number')[0].children[0].value > 0) {
-            document.getElementsByClassName('number')[0].children[0].classList.remove('error');
-        } else {
-            document.getElementsByClassName('number')[0].children[0].classList.add('error');
-        }
-    }
-});
+        else form.getElementsByClassName('picture')[0].setAttribute('src', 'img_1.png')
 
-// Для второго поля ввода
-z2.children[0].children[0].addEventListener('input', function() {
-    if (document.getElementsByName('data format')[0].value == 0) {
-        if (document.getElementsByClassName('number')[1].children[0].value > 0) {
-            document.getElementsByClassName('number')[1].children[0].classList.remove('error');
-        } else {
-            document.getElementsByClassName('number')[1].children[0].classList.add('error');
-        }
-    } else {
-        if (document.getElementsByClassName('number')[1].children[0].value >= 0 &&
-            document.getElementsByClassName('number')[1].children[0].value <= 360) {
-            document.getElementsByClassName('number')[1].children[0].classList.remove('error');
-        } else {
-            document.getElementsByClassName('number')[1].children[0].classList.add('error');
-        }
-    }
-});
-                
-                
-                
+        if (form.getElementsByClassName('number')[0] == undefined) {
 
-                
-            }
-            else {
-                if (form.getElementsByClassName('number')[1].innerHTML != 'h =' ) {
-                    form.getElementsByClassName('number')[1].innerHTML = 'h = ';
-                    let input = document.createElement('input');
-                    input.setAttribute('type', 'number');
-                    form.getElementsByClassName('number')[1].appendChild(input);
-                    
-                }
-
-            
-
-            }
-            
+            let b = createLabeledNumberInput('b = ')
+            let h = createLabeledNumberInput('h = ');
+            form.appendChild(b);
+            form.appendChild(h);
         }
         else {
-            if(form.getElementsByClassName('picture')[0] == undefined){
-                form.appendChild(createImage('img_2.png'));
-            }
-            else {
-                form.getElementsByClassName('picture')[0].setAttribute('src','img_2.png')
-            }
+            if (form.getElementsByClassName('number')[1].innerHTML != 'h =') {
+                form.getElementsByClassName('number')[1].innerHTML = 'h = ';
+                let input = document.createElement('input');
+                input.setAttribute('type', 'number');
+                form.getElementsByClassName('number')[1].appendChild(input);
 
-            if(form.getElementsByClassName('number')[0] == undefined)
-            {
-                let z1 = createLabeledNumberInput('b = ')
-                form.appendChild(z1);
-                let z2 = createLabeledNumberInput('a = ');
-                form.appendChild(z2);
-               // Для первого поля ввода
-z1.children[0].children[0].addEventListener('input', function() {
-    if (document.getElementsByName('data format')[0].value == 0) {
-        if (document.getElementsByClassName('number')[1].children[0].value <= 
-            document.getElementsByClassName('number')[0].children[0].value &&
-            document.getElementsByClassName('number')[0].children[0].value > 0 &&
-            document.getElementsByClassName('number')[1].children[0].value > 0) {
-            document.getElementsByClassName('number')[0].children[0].classList.remove('error');
-        } else {
-            document.getElementsByClassName('number')[0].children[0].classList.add('error');
-        }
-    } else {
-        if (document.getElementsByClassName('number')[0].children[0].value > 0) {
-            document.getElementsByClassName('number')[0].children[0].classList.remove('error');
-        } else {
-            document.getElementsByClassName('number')[0].children[0].classList.add('error');
-        }
-    }
-});
-
-// Для второго поля ввода
-z2.children[0].children[0].addEventListener('input', function() {
-    if (document.getElementsByName('data format')[0].value == 0) {
-        if (document.getElementsByClassName('number')[1].children[0].value > 0) {
-            document.getElementsByClassName('number')[1].children[0].classList.remove('error');
-        } else {
-            document.getElementsByClassName('number')[1].children[0].classList.add('error');
-        }
-    } else {
-        if (document.getElementsByClassName('number')[1].children[0].value >= 0 &&
-            document.getElementsByClassName('number')[1].children[0].value <= 90) { // Изменено на <= 90
-            document.getElementsByClassName('number')[1].children[0].classList.remove('error');
-        } else {
-            document.getElementsByClassName('number')[1].children[0].classList.add('error');
-        }
-    }
-}); 
-        
-            
-            }
-            else {
-                if (form.getElementsByClassName('number')[1].innerHTML != 'a =' ) {
-                    form.getElementsByClassName('number')[1].innerHTML = 'a = ';
-                    let input = document.createElement('input');
-                    input.setAttribute('type', 'number');
-                    form.getElementsByClassName('number')[1].appendChild(input);
-                }
             }
         }
-      
-        if(document.getElementsByClassName('property')[0] == undefined)
-        {
-            let p_3 = document.createElement('p');
-            let legend = document.createElement("legend");
-            legend.className = 'property';
-            // legend.classList.add('bold');
-            legend.innerHTML = "Найти:";
-        
-            form.appendChild(p_3);
-            p_3.appendChild(legend);
-            
-            legend.appendChild(createCheckbox("диагонали","0","property"));
-            legend.appendChild(createCheckbox("площадь","1","property"));
-            legend.appendChild(createCheckbox("периметр","2","property"));
-            legend.appendChild(createCheckbox("радиус вписанной окружности","3","property"));
-            document.getElementsByClassName('property')[0].addEventListener('change', function() {
-                console.log(1)
-                let b = true;
-                for (let i = 0; i < legend.children.length; i++)
-                {
-                    if (legend.children[i].children[0].checked) {
-                        b = false;
-                    
-                    } 
-                }
-                if (b) {legend.classList.add('error2');
-                    
-                }
-                else legend.classList.remove('error2');
-            });
-                
-            
+
+    }
+    else {
+
+        if (form.getElementsByClassName('picture')[0] == undefined) {
+            form.appendChild(createImage('img_2.png'));
         }
-        if (document.getElementsByClassName('menu')[0] == undefined)
-        {
-            let menu = document.createElement('p');
-            let compute = document.createElement('input');
-            compute.setAttribute('type', 'button');
-            compute.setAttribute('value', 'Вычислить');
-
-
-
-            let clear = document.createElement('input');
-            clear.setAttribute('type', 'button');
-            clear.setAttribute('value', 'Очистить');
-        
-            menu.className = 'menu';
-
-            form.appendChild(menu);
-            menu.appendChild(compute);
-            menu.appendChild(clear);
-
-          
-            clear.addEventListener('click', function(){
-                
-                legend = document.getElementsByClassName('property')[0];
-                for (let i = 0; i < legend.children.length; i++)
-                    {
-                        legend.children[i].children[0].checked = false;
-                    }
-                legend.classList.remove('error2');   
-                number = document.getElementsByClassName('number')[0].children[0].value = '';
-                number = document.getElementsByClassName('number')[0].children[0].classList.remove('error');
-                number = document.getElementsByClassName('number')[1].children[0].value = '';
-                number = document.getElementsByClassName('number')[1].children[0].classList.remove('error');
-            });
-
-            compute.addEventListener('click', function(){
-                
-                let value1 = document.getElementsByClassName('number')[0].children[0].value; //b
-                let value2 = document.getElementsByClassName('number')[1].children[0].value; //a или h
-                
-                let localType = (document.getElementsByName('data format')[0].value);
-
-                if (localType == '0') {
-                    if (value2 <= value1 && value2 > 0 && value1 > 0)
-                        document.getElementsByClassName('number')[0].children[0].classList.remove('error');
-                    else document.getElementsByClassName('number')[0].children[0].classList.add('error');  
-                    if (value2 > 0)
-                        document.getElementsByClassName('number')[1].children[0].classList.remove('error');
-                    else document.getElementsByClassName('number')[1].children[0].classList.add('error'); 
-                }
-                else {
-                    if (value2 > 0 && value2 <= 90)
-                        document.getElementsByClassName('number')[1].children[0].classList.remove('error');
-                    else document.getElementsByClassName('number')[1].children[0].classList.add('error');     
-                    if (value1 > 0)
-                        document.getElementsByClassName('number')[0].children[0].classList.remove('error');
-                    else document.getElementsByClassName('number')[0].children[0].classList.add('error'); 
-                }
-        
-
-                let b = true;
-                legend = document.getElementsByClassName('property')[0];
-                for (let i = 0; i < legend.children.length; i++)
-                {
-                    if (legend.children[i].children[0].checked) {
-                        b = false;
-                    
-                    } 
-                }
-                if (b) {legend.classList.add('error2');
-                    
-                }
-                else legend.classList.remove('error2');
-                
-                // проверка данных 
-
-            
-
-                if (value1 && b == false){
-                    if (value2) {
-                        let resultP;
-                        if (document.getElementsByClassName('result')[0] == undefined)
-                        {
-                            resultP = document.createElement("p");
-                            resultP.className = 'result';
-        
-                        }
-                        else resultP = document.getElementsByClassName('result')[0];
-                        resultP.innerHTML = "Результат:";
-                        let r = calculate(
-                            document.getElementsByClassName('number')[0].children[0].value, // b
-                            localType == '0' ? document.getElementsByClassName('number')[1].children[0].value : 0,  // h
-                            localType == '1' ? document.getElementsByClassName('number')[1].children[0].value : 1   // a
-                        );
-                        for(let key in r) {
-                            let current = document.createElement('p');
-                            current.innerHTML = `${ key }: ${ r[key] }`;
-                            resultP.appendChild(current);
-                            
-                        }
-                        form.appendChild(resultP);
-                    }
-                }
-
-
-            });
+        else {
+            form.getElementsByClassName('picture')[0].setAttribute('src', 'img_2.png')
         }
-    
 
-        
-    }
-    function selectForm() {
-        let form = document.getElementsByTagName('form')[0];
-        creatForm(form.getElementsByTagName('select')[0].value);
-    }       
+        if (form.getElementsByClassName('number')[0] == undefined) {
 
-    function result() {
-        
-    }
+            let b = createLabeledNumberInput('b = ');
+            let a = createLabeledNumberInput('a = ');
 
-    function createCheckbox(labelText, value, name) {
-        let br = document.createElement('br');
-        let input = document.createElement("input");
-        let inputText = document.createElement('span');
+            form.appendChild(b);
+            form.appendChild(a);
 
-        inputText.innerHTML = labelText; // Устанавливаем текст надписи
-        input.setAttribute('type', 'checkbox');
-        input.setAttribute('name', name);
-        input.setAttribute('value', value);
-        inputText.className = 'normal';
-
-        let container = document.createElement('div'); // Создаем контейнер для элемента
-
-        container.appendChild(input);
-        container.appendChild(inputText);
-        container.appendChild(br);
-
-        return container;
+        }
+        else {
+            if (form.getElementsByClassName('number')[1].innerHTML != 'a =') {
+                form.getElementsByClassName('number')[1].innerHTML = 'a = ';
+                let input = document.createElement('input');
+                input.setAttribute('type', 'number');
+                form.getElementsByClassName('number')[1].appendChild(input);
+            }
+        }
     }
 
 
-    function createLabeledNumberInput(labelText, form) {
+    let b_input = form.getElementsByClassName('number')[0].children[0];
+    let h_or_a_input = form.getElementsByClassName('number')[1].children[0];
 
-        let p = document.createElement('p');
-        
-        let label = document.createElement('label');
-        label.innerHTML = labelText;
-        let input = document.createElement('input');
-        
-        input.setAttribute('type', 'number');
-        label.className = 'number';
-        label.appendChild(input); // Добавляем input в label
-        p.appendChild(label); // Добавляем label в p
-        //form.appendChild(p); // Добавляем paragraph в форму
 
-        return p; // Возвращаем созданный input, чтобы можно было получить его значение
+    // Для первого поля ввода
+    b_input.addEventListener('input', function () {
+        // Преобразуем значения в числа
+        const bValue = parseFloat(b_input.value);
+        const hOrAValue = parseFloat(h_or_a_input.value);
+
+        if (typeChart == 0) {
+            if (hOrAValue <= bValue && bValue > 0) {
+                b_input.classList.remove('error');
+            } else {
+                b_input.classList.add('error');
+            }
+        } else {
+            if (bValue > 0) {
+                b_input.classList.remove('error');
+            } else {
+                b_input.classList.add('error');
+            }
+        }
+        if (typeChart == 0) {
+            if (hOrAValue > 0 && hOrAValue <= bValue) {
+                h_or_a_input.classList.remove('error');
+            } else {
+                h_or_a_input.classList.add('error');
+            }
+        } else {
+            if (hOrAValue >= 0 && hOrAValue <= 180) {
+                h_or_a_input.classList.remove('error');
+            } else {
+                h_or_a_input.classList.add('error');
+            }
+        }
+    });
+
+    // Для второго поля ввода
+    h_or_a_input.addEventListener('input', function () {
+        // Преобразуем значение в число
+        const hOrAValue = parseFloat(h_or_a_input.value);
+        const bValue = parseFloat(b_input.value);
+        if (typeChart == 0) {
+            if (hOrAValue > 0 && hOrAValue <= bValue) {
+                h_or_a_input.classList.remove('error');
+            } else {
+                h_or_a_input.classList.add('error');
+            }
+        } else {
+            if (hOrAValue >= 0 && hOrAValue <= 180) {
+                h_or_a_input.classList.remove('error');
+            } else {
+                h_or_a_input.classList.add('error');
+            }
+        }
+        if (typeChart == 0) {
+            if (hOrAValue <= bValue && bValue > 0) {
+                b_input.classList.remove('error');
+            } else {
+                b_input.classList.add('error');
+            }
+        } else {
+            if (bValue > 0) {
+                b_input.classList.remove('error');
+            } else {
+                b_input.classList.add('error');
+            }
+        }
+    });
+
+    // тут 
+
+    if (document.getElementsByClassName('property')[0] == undefined) {
+        let p_3 = document.createElement('p');
+        let legend = document.createElement("legend");
+        legend.className = 'property';
+        // legend.classList.add('bold');
+        legend.innerHTML = "Найти:";
+
+        form.appendChild(p_3);
+        p_3.appendChild(legend);
+
+        legend.appendChild(createCheckbox("диагонали", "0", "property"));
+        legend.appendChild(createCheckbox("площадь", "1", "property"));
+        legend.appendChild(createCheckbox("периметр", "2", "property"));
+        legend.appendChild(createCheckbox("радиус вписанной окружности", "3", "property"));
+        document.getElementsByClassName('property')[0].addEventListener('change', function () {
+           
+            let b = true;
+            for (let i = 0; i < legend.children.length; i++) {
+                if (legend.children[i].children[0].checked) {
+                    b = false;
+
+                }
+            }
+            if (b) {
+                legend.classList.add('error2');
+
+            }
+            else legend.classList.remove('error2');
+        });
+
+
     }
+    if (document.getElementsByClassName('menu')[0] == undefined) {
+        // блок с кнопками вычислить, очистить
+        let menu = document.createElement('p');
+        menu.className = 'menu';
 
-    function createImage(src)
-    {
-    
-        let picture = document.createElement("img");
-        picture.setAttribute('src', src);
-        // picture.innerHTML = url;
-        picture.className = 'picture';
-        return picture;
+        //кнопка вычислить
+        let compute = document.createElement('input');
+        compute.setAttribute('type', 'button');
+        compute.setAttribute('value', 'Вычислить');
+
+        //кнопка Очистить
+        let clear = document.createElement('input');
+        clear.setAttribute('type', 'button');
+        clear.setAttribute('value', 'Очистить');
+
+        //добавляем
+        form.appendChild(menu);
+        menu.appendChild(compute);
+        menu.appendChild(clear);
+
+        clear.addEventListener('click', function () {
+
+            b_input = form.getElementsByClassName('number')[0].children[0];
+            h_or_a_input = form.getElementsByClassName('number')[1].children[0];
+
+            legend = document.getElementsByClassName('property')[0];
+            for (let i = 0; i < legend.children.length; i++) {
+                legend.children[i].children[0].checked = false;
+            }
+            legend.classList.remove('error2');
+
+            // b clear
+            b_input.value = '';
+            b_input.classList.remove('error');
+            
+            //очистка a or h    
+            form.getElementsByClassName('number')[1].children[0].value = '';
+            form.getElementsByClassName('number')[1].children[0].classList.remove('error');
+            
+            
+        });
+
+        compute.addEventListener('click', function () {
+
+            b_input = form.getElementsByClassName('number')[0].children[0];
+            h_or_a_input = form.getElementsByClassName('number')[1].children[0];
+
+            //значение полей
+            let bValue = parseFloat(b_input.value);
+            let hOrAValue = parseFloat(h_or_a_input.value);
+
+            let resultP;
+            if (document.getElementsByClassName('result')[0] == undefined) {
+                resultP = document.createElement("p");
+                resultP.className = 'result';
+            } else resultP = document.getElementsByClassName('result')[0];
+
+            resultP.innerHTML = "Результат:";
+            form.appendChild(resultP);
+
+           /* if (isNaN(bValue)) b_input.classList.add('error');
+            else if (isNaN(hOrAValue)) h_or_a_input.classList.add('error');
+            if (isNaN(bValue) && isNaN(hOrAValue)) {
+                h_or_a_input.classList.add('error');
+                b_input.classList.add('error');
+            }*/                 
+
+            let localType = (document.getElementsByName('data format')[0].value);
+                //console.log(h_or_a_input)   
+            if (localType == '0') {
+                if (hOrAValue <= bValue) b_input.classList.remove('error');
+                else b_input.classList.add('error');
+
+                if (hOrAValue > 0) h_or_a_input.classList.remove('error');
+                else h_or_a_input.classList.add('error');
+            } else {
+
+                
+                if (hOrAValue > 0 && hOrAValue <= 180) h_or_a_input.classList.remove('error');
+                else h_or_a_input.classList.add('error');
+
+                if (bValue > 0) b_input.classList.remove('error');
+                else b_input.classList.add('error');
+            }
+
+            let AllvalueIsUnDefine = true;
+            legend = document.getElementsByClassName('property')[0];
+            for (let i = 0; i < legend.children.length; i++) {
+                if (legend.children[i].children[0].checked) {
+                    AllvalueIsUnDefine = false;
+                }
+            }
+
+            if (AllvalueIsUnDefine) legend.classList.add('error2');
+            else legend.classList.remove('error2');
+
+
+            // Проверка данных 
+            if (AllvalueIsUnDefine == false) {
+
+                let r = calculate(
+                    bValue, // b
+                    localType == '0' ? hOrAValue : 0, // h
+                    localType == '1' ? hOrAValue : 1   // a
+                );      
+
+                for (let key in r) {
+                    let current = document.createElement('p');
+                    current.innerHTML = `${key}: ${r[key]}`;
+                    resultP.appendChild(current);
+                }
+
+
+            }
+        });
     }
+}
 
-    function calculate(a, h, alphaDegrees) {
-    let alphaRadians; 
-    let S, P, r, d1, d2; 
-    
-        if (a <= 0) return; // "Сторона ромба должна быть больше 0.";
-        if (h < 0) return ; // "Высота ромба должна быть неотрицательной.";
-        if (alphaDegrees <= 0 || alphaDegrees >= 180) return ; //"Угол должен быть больше 0 и меньше 180 градусов.";
-        if (h > a) return ; //"Высота ромба не может быть больше его стороны.";
- 
+function selectForm() {
+    let form = document.getElementsByTagName('form')[0];
+    creatForm(form.getElementsByTagName('select')[0].value);
+}
+
+
+function createCheckbox(labelText, value, name) {
+    let br = document.createElement('br');
+    let input = document.createElement("input");
+    let inputText = document.createElement('span');
+
+    inputText.innerHTML = labelText; // Устанавливаем текст надписи
+    input.setAttribute('type', 'checkbox');
+    input.setAttribute('name', name);
+    input.setAttribute('value', value);
+    inputText.className = 'normal';
+
+    let container = document.createElement('div'); // Создаем контейнер для элемента
+
+    container.appendChild(input);
+    container.appendChild(inputText);
+    container.appendChild(br);
+
+    return container;
+}
+
+
+function createLabeledNumberInput(labelText, form) {
+
+    let p = document.createElement('p');
+
+    let label = document.createElement('label');
+    label.innerHTML = labelText;
+    let input = document.createElement('input');
+
+    input.setAttribute('type', 'number');
+    label.className = 'number';
+    label.appendChild(input); // Добавляем input в label
+    p.appendChild(label); // Добавляем label в p
+    //form.appendChild(p); // Добавляем paragraph в форму
+
+    return p; // Возвращаем созданный input, чтобы можно было получить его значение
+}
+
+function createImage(src) {
+
+    let picture = document.createElement("img");
+    picture.setAttribute('src', src);
+    // picture.innerHTML = url;
+    picture.className = 'picture';
+    return picture;
+}
+
+function calculate(a, h, alphaDegrees) {
+    let alphaRadians;
+    let S, P, r, d1, d2;
+
+    a = parseFloat(a);
+    h = parseFloat(h);
+    alphaDegrees = parseFloat(alphaDegrees);
+    if (a <= 0) return; // "Сторона ромба должна быть больше 0.";
+    if (h < 0) return; // "Высота ромба должна быть неотрицательной.";
+    if (alphaDegrees <= 0 || alphaDegrees >= 180) return; //"Угол должен быть больше 0 и меньше 180 градусов.";
+    if (h > a) return; //"Высота ромба не может быть больше его стороны.";
+
     if (h > 0) {
         S = a * h; // Площадь
         r = h / 2; // Радиус вписанной окружности
@@ -357,12 +354,12 @@ z2.children[0].children[0].addEventListener('input', function() {
         alphaRadians = Math.asin(h / a); // Угол в радианах
         d1 = 2 * a * Math.cos(alphaRadians / 2); // Диагональ 1
         d2 = 2 * a * Math.sin(alphaRadians / 2); // Диагональ 2
-        
+
         return getResult(d1, d2, S, P, r);
-    } else { 
+    } else {
         // Если известны сторона и угол
         alphaRadians = alphaDegrees * Math.PI / 180; // Переводим в радианы
-        
+
         S = a * a * Math.sin(alphaRadians); // Площадь
         h = a * Math.sin(alphaRadians); // Высота
         r = h / 2; // Радиус вписанной окружности
@@ -379,18 +376,18 @@ function getResult(d1, d2, s, p, r) {
     let result = {};
 
     let property = document.getElementsByClassName('property')[0];
-    
+
     if (property.children[0].children[0].checked) {
         result['d1'] = d1;
         result['d2'] = d2;
     }
-    
+
     if (property.children[1].children[0].checked)
         result['S'] = s;
-    
+
     if (property.children[2].children[0].checked)
         result['P'] = p;
-    
+
     if (property.children[3].children[0].checked)
         result['r'] = r;
 
