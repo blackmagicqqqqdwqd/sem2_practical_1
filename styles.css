@@ -1,0 +1,15 @@
+.error {
+    border-color: red;
+}
+
+.menu {
+    display: flex;
+}
+
+.error2 {
+    color: red;
+}
+
+.normal {
+    color: black;
+}
